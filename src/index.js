@@ -34,7 +34,7 @@ images.forEach(img => {
   })
 })
 
-// Alerts "Hello World!" when you load the page
+// // Alerts "Hello World!" when you load the page
 window.addEventListener('load', () => alert('Hello World!'));
 
 // Makes the page disappear if you click out of it
@@ -45,15 +45,43 @@ window.addEventListener('focus', () => {
   window.document.body.style.display = 'block';
 })
 
-// Adds text to the top left that shows the size of the window when you resize it
+// // Adds text to the top left that shows the size of the window when you resize it
 const newDiv = document.createElement('div')
 newDiv.className = 'new-div';
 const newSpan = document.createElement('span')
 newSpan.className ='new-span';
+
 document.querySelector('.main-navigation').appendChild(newDiv);
 document.querySelector('.new-div').appendChild(newSpan);
-const span = document.querySelector('.new-span');
-window.addEventListener('resize', e => {
-  span.textContent = `${window.innerHeight}, ${window.innerWidth}`;
-  span.style.fontSize = '2rem';
+
+window.addEventListener('resize', () => {
+  newSpan.textContent = `${window.innerHeight}, ${window.innerWidth}`;
+  newSpan.style.fontSize = '2rem';
 })
+
+// Adds a button that takes you to the top of the page
+const newBtn = document.createElement('button');
+newBtn.textContent = 'TOP';
+newBtn.style.display = 'none';
+newBtn.style.width = '50px';
+newBtn.style.height = '50px';
+newBtn.style.border = '1px solid #C0C0C0';
+newBtn.style.cursor = 'pointer';
+newBtn.style.color = 'white';
+newBtn.style.backgroundColor = '#17A2B8';
+
+document.querySelector('.main-navigation').appendChild(newBtn);
+
+window.addEventListener('scroll', () => {
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    newBtn.style.display = 'block';
+  } else {
+    newBtn.style.display = 'none';
+  }
+})
+
+newBtn.addEventListener('click', () => {
+  window.scrollTo(0, 0);
+})
+
+//
