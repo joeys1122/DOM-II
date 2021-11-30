@@ -2,7 +2,7 @@ import './less/index.less'
 
 // Your code goes here!
 
-// Makes nav links turn blue when hoovered 
+// Uses "mouseenter" and "mouseleave" to make nav links turn blue when hoovered 
 const navLinks = document.querySelectorAll('.nav-link');
 navLinks.forEach(link => {
   link.addEventListener('mouseenter', e => {
@@ -13,7 +13,10 @@ navLinks.forEach(link => {
   });
 })
 
-// Inverts the colors of the images if you press 'i'
+
+
+
+// Uses "keydown" to invert the colors of the images if you press 'i'
 const images = document.querySelectorAll('img');
 document.addEventListener('keydown', e => {
   if (e.key === 'i') {
@@ -23,7 +26,11 @@ document.addEventListener('keydown', e => {
   }
 })
 
-// Lets you zoom in and out on images
+
+
+
+
+// Uses "wheel" and "preventDefault", lets you resize images if you hover over them and scroll
 let scale = 1;
 images.forEach(img => {
   img.addEventListener('wheel', e => {
@@ -34,10 +41,18 @@ images.forEach(img => {
   })
 })
 
-// // Alerts "Hello World!" when you load the page
+
+
+
+
+// Uses "load" to make an alert when you load the page
 window.addEventListener('load', () => alert('Hello World!'));
 
-// Makes the page disappear if you click out of it
+
+
+
+
+// Uses "blur" and "focus" to make the page disappear if you click out of it
 window.addEventListener('blur', () => {
   window.document.body.style.display = 'none';
 })
@@ -45,7 +60,11 @@ window.addEventListener('focus', () => {
   window.document.body.style.display = 'block';
 })
 
-// // Adds text to the top left that shows the size of the window when you resize it
+
+
+
+
+// Uses "resize" to log the windows height and width when you resize it
 const newDiv = document.createElement('div')
 newDiv.className = 'new-div';
 const newSpan = document.createElement('span')
@@ -59,7 +78,11 @@ window.addEventListener('resize', () => {
   newSpan.style.fontSize = '2rem';
 })
 
-// Adds a button that takes you to the top of the page
+
+
+
+
+// Uses "scroll", adds a button that takes you to the top of the page when you scroll down
 const newBtn = document.createElement('button');
 newBtn.textContent = 'TOP';
 newBtn.style.display = 'none';
@@ -83,5 +106,3 @@ window.addEventListener('scroll', () => {
 newBtn.addEventListener('click', () => {
   window.scrollTo(0, 0);
 })
-
-//
